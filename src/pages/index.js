@@ -1,16 +1,29 @@
 import Head from 'next/head'
 import styles from '../../styles/Home.module.css'
 import axios from 'axios'
+import MainScreen from '../components/Login'
+import Login from '../components/Login'
+import React from 'react'
+
+
 
 export default function Home() {
+
+  const [loggedIn, setLoggedIn] = React.useState('false')
+  const [username, setUsername] = React.useState('')
+  const [repoData, setRepoData] = React.useState([])
+
+
   return (
     <div className={styles.container}>
       <Head>
         <title>Github Reporting</title>
         <link rel="icon" href="/Github-Mark-32px.png" />
       </Head>
-
-      <main className={styles.main}>
+      <Login name={setUsername} logged={setLoggedIn} repo={setRepoData}/>
+      <div>  {console.log(username)}
+              {console.log(repoData)}</div>
+      {/* <main className={styles.main}>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
@@ -49,7 +62,7 @@ export default function Home() {
             </p>
           </a>
         </div>
-      </main>
+      </main> */}
 
       <footer className={styles.footer}>
         <a
