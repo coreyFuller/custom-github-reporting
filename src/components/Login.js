@@ -32,7 +32,7 @@ const Login = (props) => {
             </button>
         </form>
     </main>
-    )
+ )
 }
 
 
