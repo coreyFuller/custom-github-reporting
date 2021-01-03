@@ -36,6 +36,9 @@ const MainScreen = (props) => {
             <div className='h-0.5 bg-black w-3/4 opacity-10 '>
             </div>
             </div>
+            <div>
+            {
+            props.recent.length > 1 ?
             <section className='text-center text-2xl items-center mb-8'>
                 Your Recently Changed Repositories
                 <div className='flex flex-row text-base items-center text-center justify-center'>
@@ -43,7 +46,18 @@ const MainScreen = (props) => {
                     <Repo key={index} render={item.name} link={item.html_url}/>
                 ))}
                 </div>
-            </section>  
+            </section>
+            :
+            <section className='text-center text-2xl items-center mb-8'>
+            Your Recently Changed Repository
+            <div className='flex flex-row text-base items-center text-center justify-center'>
+            {props.recent.map((item, index) => (
+                <Repo key={index} render={item.name} link={item.html_url}/>
+            ))}
+            </div>
+         </section>
+            }
+        </div>
             { props.top.length > 1 ?              
             <section className='text-center text-2xl items-center mb-8'>
                 Your Most Popular Repositories
@@ -54,14 +68,13 @@ const MainScreen = (props) => {
                 </div>
             </section>
             :
-
             <section className='text-center text-2xl items-center mb-8'>
                 Your Most Popular Repository
                 <div className='flex flex-row text-base items-center text-center justify-center'>
                 {props.top.map((item, index) => (
                     <Repo key={index} render={item.name} link={item.html_url}/>
                 ))} 
-                </div>
+            </div>
             </section>
             }
             <section className='text-center text-2xl'>
