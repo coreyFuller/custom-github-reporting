@@ -1,31 +1,61 @@
 import Head from 'next/head'
 import styles from '../../styles/Home.module.css'
 import axios from 'axios'
-import MainScreen from '../components/Login'
+import MainScreen from '../components/MainScreen'
 import Login from '../components/Login'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 
 
 
 export default function Home() {
 
-  const [loggedIn, setLoggedIn] = React.useState('false')
-  const [username, setUsername] = React.useState('')
+  const [loggedIn, setLoggedIn] = React.useState(false)
   const [repoData, setRepoData] = React.useState([])
-
+  const [language, setLanguage] = React.useState('')
+  const [username, setUsername] = React.useState('')
+  const [mostRecent, setMostRecent] = React.useState([])
+  const [topRepos, setTopRepos] = React.useState([])
+  const [repoDate, setRepoDate] = React.useState({})
+  const [pullAll, setPullAll] = React.useState(false)
   
-
+ 
+  useEffect(()=>
+  { 
+    if(repoData.length == 0) return
+    const lang_dict = {}
+    const langs = repoData.map(repo => repo.language)
+    langs.map(lang => lang_dict[lang] = (lang_dict[lang] || 0)+1)
+    repoData.forEach(repo => repo.pushed_at = new Date(String(repo.pushed_at).split("T")[0]))
+    const lang = (Object.keys(lang_dict).reduce(function(a, b){ return lang_dict[a] > lang_dict[b] ? a : b }))
+    setLanguage(lang)
+    repoData.sort((a,b) => b.pushed_at - a.pushed_at)
+    const most_recent = repoData.slice(0, Math.floor(repoData.length/3))
+    setMostRecent(mostRecent)
+    const starred_repo = repoData.filter(repo => repo.stargazers_count > 0)
+    starred_repo.sort((a, b) => b.stargazers_count - a.stargazers_count)
+    const top_reps = starred_repo.slice(0, Math.floor(starred_repo.length/3))
+    setTopRepos(top_reps)
+    setPullAll(true)
+  }
+  ,[repoData])
 
   return (
     <div className={styles.container}>
+
+      {!loggedIn ? 
+      <div>
       <Head>
         <title>Github Reporting</title>
         <link rel="icon" href="/Github-Mark-32px.png" />
       </Head>
       <Login name={setUsername} logged={setLoggedIn} repo={setRepoData}/>
-      <div>  {console.log(username)}
-              {console.log(repoData)}</div>
+      </div>
+      :
+      <div>
+      {pullAll && <MainScreen recent={mostRecent} top={topRepos} lang={language}/>}
+      </div>
+      }
       {/* <main className={styles.main}>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>

@@ -6,19 +6,14 @@ const Login = (props) => {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        // console.log(event.target[0].value);
         props.name(event.target[0].value)
         props.logged(true)
-        // console.log(event.target[0].value)
         axios.get((`https://api.github.com/users/${event.target[0].value}/repos`), {
             headers : {
                 'Authorization' : `key=${process.env.TOKEN}`
             }
         }
         ).then((response) => props.repo(response.data))
-        
-        // console.log(props.name, props.logged)
-        // props.logged_in = true;
     }    
 
     return(
