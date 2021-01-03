@@ -1,6 +1,6 @@
 import { render } from 'react-dom'
 import Repo from '../components/Repo'
-import styles from '../../styles/Home.module.css'
+import styles from '../styles/Home.module.css'
 
 const MainScreen = (props) => {
     const doc_links  = {

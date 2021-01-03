@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import styles from '../../styles/Home.module.css'
+import styles from '../styles/Home.module.css'
 import axios from 'axios'
 
 const Login = (props) => {
@@ -19,7 +19,7 @@ const Login = (props) => {
     return(
     <main className='flex-col justify-items-center align-middle'>
         <h1 className={styles.title}>Github Reporting</h1>
-        <img src='/Github-Mark-120px-plus.png'/>     
+        <img src='/GitHub-Mark-120px-plus.png'/>     
         Login
         <form onSubmit= {onSubmit}>
             <input 

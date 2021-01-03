@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import styles from '../../styles/Home.module.css'
+import styles from '../styles/Home.module.css'
 import axios from 'axios'
 import MainScreen from '../components/MainScreen'
 import Login from '../components/Login'
@@ -105,7 +105,7 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           Corey Fuller, all rights reserved.<br/>
-          <img src="/Github-Mark-32px.png" alt="Github Logo" className={styles.logo} />
+          <img src="/GitHub-Mark-32px.png" alt="Github Logo" className={styles.logo} />
         </a>
       </footer>
     </div>
