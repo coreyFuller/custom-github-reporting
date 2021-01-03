@@ -31,10 +31,10 @@ export default function Home() {
     setLanguage(lang)
     repoData.sort((a,b) => b.pushed_at - a.pushed_at)
     const most_recent = repoData.slice(0, Math.floor(repoData.length/3))
-    setMostRecent(mostRecent)
+    setMostRecent(most_recent)
     const starred_repo = repoData.filter(repo => repo.stargazers_count > 0)
     starred_repo.sort((a, b) => b.stargazers_count - a.stargazers_count)
-    const top_reps = starred_repo.slice(0, Math.floor(starred_repo.length/3))
+    const top_reps = starred_repo.slice(0, Math.floor(starred_repo.length/2))
     setTopRepos(top_reps)
     setPullAll(true)
   }
@@ -53,6 +53,7 @@ export default function Home() {
       </div>
       :
       <div>
+        {console.log(mostRecent)}
       {pullAll && <MainScreen recent={mostRecent} top={topRepos} lang={language}/>}
       </div>
       }
@@ -103,8 +104,8 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+          Corey Fuller, all rights reserved.<br/>
+          <img src="/Github-Mark-32px.png" alt="Github Logo" className={styles.logo} />
         </a>
       </footer>
     </div>
