@@ -16,7 +16,12 @@ const MainScreen = (props) => {
         'Swift' : 'https://swift.org/documentation/',
         'Typescript' : 'https://www.typescriptlang.org/docs/',
         'Ruby' : 'https://www.ruby-lang.org/en/documentation/',
-        'PowerShell' : 'https://docs.microsoft.com/en-us/powershell/'
+        'PowerShell' : 'https://docs.microsoft.com/en-us/powershell/',
+        'CSS' : 'https://developer.mozilla.org/en-US/docs/Web/CSS',
+        'PHP' : 'https://www.php.net/docs.php',
+        'Shell' : 'https://devdocs.io/bash/',
+        'HTML' : 'https://developer.mozilla.org/en-US/docs/Web/HTML',
+        'Dockerfile' :  'https://docs.docker.com/'
     }
 
     return(
