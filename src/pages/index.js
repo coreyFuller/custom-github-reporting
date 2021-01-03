@@ -34,7 +34,20 @@ export default function Home() {
     setMostRecent(most_recent)
     const starred_repo = repoData.filter(repo => repo.stargazers_count > 0)
     starred_repo.sort((a, b) => b.stargazers_count - a.stargazers_count)
-    const top_reps = starred_repo.slice(0, Math.floor(starred_repo.length/2))
+    let top_reps = [];
+    console.log(starred_repo)
+
+    if(starred_repo.length == 0){
+      top_reps = repoData[Math.floor(Math.random() * (repoData.length - 1))]
+    }
+    else if( starred_repo.length == 1){
+      top_reps.push(repoData[0])
+    }
+  
+    else {
+      top_reps = starred_repo.slice(0, Math.floor(starred_repo.length/2))
+    }
+
     setTopRepos(top_reps)
     setPullAll(true)
   }

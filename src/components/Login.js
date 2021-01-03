@@ -17,17 +17,20 @@ const Login = (props) => {
     }    
 
     return(
-    <main className='flex-col justify-items-center align-middle'>
+    <main className='flex-col items-center flex font-bold align-middle m-10'>
         <h1 className={styles.title}>Github Reporting</h1>
-        <img src='/GitHub-Mark-120px-plus.png'/>     
-        Login
+        <img src='/GitHub-Mark-120px-plus.png' className ='m-10'/>  
+        <div className='opacity-80 animate-pulse'>   
+            Login with GitHub Username
+        </div>
         <form onSubmit= {onSubmit}>
             <input 
             placeholder='Enter Here'
             type='string'
+            className='mb-10 mt-3 border-2 border-blue-200  rounded-full'
             >
             </input>
-            <button className='hover:underline bg-transparent hover:text-blue-400 border-gray-200 border-solid border-2 rounded-lg m-2' type='submit'>
+            <button className='bg-transparent hover:text-blue-400 border-gray-200 border-solid border-2 rounded-full mb-10' type='submit'>
                 Enter
             </button>
         </form>
