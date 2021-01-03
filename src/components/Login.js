@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import styles from '../styles/Home.module.css'
+import styles from '../../styles/Home.module.css'
 import axios from 'axios'
 
 const Login = (props) => {
