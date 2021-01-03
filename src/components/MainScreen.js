@@ -1,6 +1,6 @@
 import { render } from 'react-dom'
 import Repo from '../components/Repo'
-
+import styles from '../../styles/Home.module.css'
 
 const MainScreen = (props) => {
     const doc_links  = {
@@ -20,7 +20,13 @@ const MainScreen = (props) => {
     }
 
     return(
-        <div className='m-4 py-12 '>
+        <div className='m-4 p-12 '>
+            <h1 className={styles.title + ' flex flex-row px-11 justify-center text-blue-300 text-opacity-50'}>
+                Welcome  
+                <div className='underline justify-center'> 
+                    {props.recent[0].owner.login}
+                </div>
+            </h1>
             <section className='text-center text-2xl'>
                 Your Recently Changed Repositories
                 <div className='flex flex-row text-base'>
@@ -28,7 +34,8 @@ const MainScreen = (props) => {
                     <Repo key={index} render={item.name} link={item.html_url}/>
                 ))}
                 </div>
-            </section>                
+            </section>  
+            { props.top.length > 1 ?              
             <section className='text-center text-2xl items-center'>
                 Your Most Popular Repositories
                 <div className='flex flex-row text-base items-center text-center'>
@@ -37,11 +44,26 @@ const MainScreen = (props) => {
                 ))} 
                 </div>
             </section>
+            :
+
+            <section className='text-center text-2xl items-center'>
+                Your Most Popular Repository
+                <div className='flex flex-row text-base items-center text-center'>
+                {props.top.map((item, index) => (
+                    <Repo key={index} render={item.name} link={item.html_url}/>
+                ))} 
+                </div>
+            </section>
+            }
             <section className='text-center text-2xl'>
-                <p>Your most used language is: {props.lang}</p>
-                <a className='hover:underline bg-blue-100 hover:text-blue-400 border-blue-300 border-solid border-2 rounded-lg m-2' href={doc_links[props.lang]}>
+                <div className='flex flex-row  place-content-center'>
+                    <div className='flex flex-col '>
+                <p className='justify-center items-center self-auto'>Your most used language is: {props.lang}</p>
+                <div onClick ={()=> window.open(doc_links[props.lang], "_blank")} className='hover:underline bg-blue-100 hover:text-blue-400 border-blue-300 border-solid border-2 rounded-lg m-2 max-w-min'>
                     Link to the language documentation
-                </a>
+                    </div>
+                </div>
+            </div>
            </section>
         </div>
     )
