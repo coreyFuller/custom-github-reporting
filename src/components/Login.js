@@ -27,7 +27,7 @@ const Login = (props) => {
             type='string'
             >
             </input>
-            <button type='submit'>
+            <button className='hover:underline bg-transparent hover:text-blue-400 border-gray-200 border-solid border-2 rounded-lg m-2' type='submit'>
                 Enter
             </button>
         </form>
