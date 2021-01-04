@@ -24,8 +24,10 @@ export default function Home() {
   { 
     if(repoData.length == 0) return
     const lang_dict = {}
-    const langs = repoData.map(repo => repo.language)
+    console.log(repoData)
+    const langs = repoData.filter(repo=> repo.language != null).map(repo => repo.language)
     langs.map(lang => lang_dict[lang] = (lang_dict[lang] || 0)+1)
+    console.log(lang_dict)
     repoData.forEach(repo => repo.pushed_at = new Date(String(repo.pushed_at).split("T")[0]))
     const lang = (Object.keys(lang_dict).reduce(function(a, b){ return lang_dict[a] > lang_dict[b] ? a : b }))
     setLanguage(lang)
