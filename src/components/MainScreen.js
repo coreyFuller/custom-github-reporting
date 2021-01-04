@@ -63,6 +63,7 @@ const MainScreen = (props) => {
          </section>
             }
         </div>
+            {console.log(props.top)}
             { props.top.length > 1 ?              
             <section className='text-center text-2xl items-center mb-8'>
                 Your Most Popular Repositories

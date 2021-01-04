@@ -24,10 +24,8 @@ export default function Home() {
   { 
     if(repoData.length == 0) return
     const lang_dict = {}
-    console.log(repoData)
     const langs = repoData.filter(repo=> repo.language != null).map(repo => repo.language)
     langs.map(lang => lang_dict[lang] = (lang_dict[lang] || 0)+1)
-    console.log(lang_dict)
     repoData.forEach(repo => repo.pushed_at = new Date(String(repo.pushed_at).split("T")[0]))
     const lang = (Object.keys(lang_dict).reduce(function(a, b){ return lang_dict[a] > lang_dict[b] ? a : b }))
     setLanguage(lang)
@@ -37,10 +35,10 @@ export default function Home() {
     const starred_repo = repoData.filter(repo => repo.stargazers_count > 0)
     starred_repo.sort((a, b) => b.stargazers_count - a.stargazers_count)
     let top_reps = [];
-    console.log(starred_repo)
 
     if(starred_repo.length == 0){
-      top_reps = repoData[Math.floor(Math.random() * (repoData.length - 1))]
+      console.log("here")
+      top_reps.push(repoData[Math.floor(Math.random() * (repoData.length - 1))])
     }
     else if( starred_repo.length == 1){
       top_reps.push(repoData[0])
