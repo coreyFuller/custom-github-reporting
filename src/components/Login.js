@@ -18,7 +18,7 @@ const Login = (props) => {
 
     return(
     <main className='flex-col items-center flex font-bold align-middle m-10'>
-        <h1 className={styles.title}>Github Reporting</h1>
+        <h1 className={styles.title}>GitHub Reporting</h1>
         <img src='/GitHub-Mark-120px-plus.png' className ='m-10'/>  
         <div className='opacity-80 animate-pulse'>   
             Login with GitHub Username
