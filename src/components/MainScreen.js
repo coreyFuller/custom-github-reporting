@@ -30,7 +30,7 @@ const MainScreen = (props) => {
                 <img className='rounded-full opacity-80' src={`https://github.com/${props.recent[0].owner.login}.png?size=200`}/>
             </div>
             <h1 className={'text-6xl font-bold flex flex-row px-11 justify-center text-gray-800 text-opacity-50  mb-6 '}>
-                <span className=' mr-5 ' >
+                <span className=' mr-5 uppercase' >
                 Welcome
                 </span>
                 <span className='justify-center italic'> 
