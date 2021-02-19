@@ -21,7 +21,8 @@ const MainScreen = (props) => {
         'PHP' : 'https://www.php.net/docs.php',
         'Shell' : 'https://devdocs.io/bash/',
         'HTML' : 'https://developer.mozilla.org/en-US/docs/Web/HTML',
-        'Dockerfile' :  'https://docs.docker.com/'
+        'Dockerfile' :  'https://docs.docker.com/',
+        'Objective-C':'https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html'
     }
 
     return(
@@ -30,7 +31,7 @@ const MainScreen = (props) => {
                 <img className='rounded-full opacity-80' src={`https://github.com/${props.recent[0].owner.login}.png?size=200`}/>
             </div>
             <h1 className={'text-6xl font-bold flex flex-row px-11 justify-center text-gray-800 text-opacity-50  mb-6 '}>
-                <span className=' mr-5 uppercase' >
+                <span className=' mr-5 uppercaseN' >
                 Welcome
                 </span>
                 <span className='justify-center italic'> 
